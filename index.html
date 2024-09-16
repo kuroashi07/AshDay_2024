@@ -164,6 +164,7 @@
         font-size: 24px;
         color: white;
         text-align: center;
+        margin-bottom: 50px;
     }
 
     @media (max-width: 768px) {
@@ -173,6 +174,14 @@
             color: white;
             text-align: center;
             width: calc(100% - 60px);
+        }
+
+        .wrapper {
+            display: none;
+        }
+
+        .floating-button {
+            display: block;
         }
     }
 
@@ -202,10 +211,6 @@
 
 <body>
     <div class="wrapper">
-        <a href="first.html">
-            <button class="floating-button">&#9654;</button>
-        </a>
-    
         <div class="cheesecake">
             <div class="top"></div>
             <div class="side"></div>
@@ -219,6 +224,10 @@
         <span id="text"></span>
         <span id="cursor"></span>
     </div>
+
+     <a href="first.html">
+        <button class="floating-button">&#9654;</button>
+     </a>
     
 </body>
 </html>
