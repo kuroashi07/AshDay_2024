@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛してます</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="website icon" href="heart.png" type="png">
+
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    section {
+        height: 100vh;
+        overflow: hidden;
+        background: #000;
+    }
+
+    p {
+        position: relative;
+        font-size: 0.5em;
+        /* 67% smaller than the base size */
+        letter-spacing: -0.05em;
+        background: url(love.jpg), url(love.jpg);
+        background-blend-mode: color-dodge;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+</style>
+
+<body>
+    <section>
+         <p id="content"></p>
+    </section>
+
+
+    <script>
+        const message = `
+            I, John, take you, Shiela, for my lawful wife, to have and to hold from this day forward, for better, for
+            worse, for richer, for poorer, in sickness and in health, until death do us part. I will love and honor you
+            all the days of my life.
+        `;
+
+        const contentP = document.getElementById('content');
+        let repeatedContent = '';
+
+       
+        while (contentP.scrollHeight <= document.documentElement.scrollHeight) {
+            repeatedContent += message + '\n\n'; 
+            contentP.innerHTML = repeatedContent;
+        }
+    </script>
+
+</body>
+
+</html>

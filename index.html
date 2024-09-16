@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チーズケーキ</title>
+    <link rel="website icon" href="letter.png" type="png">
+</head>
+
+<style>
+    body {
+        background-image: linear-gradient(to right, rgba(255, 0, 0, 0.5), pink);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        color: white;
+        font-family: 'Arima Madurai';
+        text-align: center;
+    }
+
+    .cheesecake {
+        position: relative;
+        width: 600px;
+        height: 400px;
+    }
+
+    .top {
+        position: relative;
+        left: calc((100% - 400px) / 2);
+        top: 6.5%;
+        width: 0;
+        border-top: 100px solid transparent;
+        border-right: 400px solid #fadba9;
+        border-bottom: 70px solid transparent;
+        -webkit-transform: rotatex(67deg) rotatez(-10deg);
+        transform: rotatex(67deg) rotatez(-10deg);
+    }
+
+    .side {
+        position: relative;
+        left: calc((100% - 64.5%) / 2);
+        top: -10%;
+        width: 67.5%;
+        height: 32%;
+        background: #e1cbac;
+        box-shadow: inset 0 25px 0 rgba(250, 219, 169, .7), 0 20px 0 rgba(219, 171, 90, .9);
+        border-radius: 0 0 5% 5%;
+    }
+
+    .side::before {
+        content: "";
+        position: absolute;
+        left: 55%;
+        top: -2%;
+        width: 10%;
+        height: 124%;
+        background: rgba(246, 70, 93, .9);
+        border-radius: 6%;
+    }
+
+    .strawberry {
+        position: relative;
+        width: 13%;
+        height: 19.5%;
+        background: #e8031b;
+        box-shadow: inset -3px -5px 2px #b8100a;
+        border-radius: 15% 50% 50% 50%;
+    }
+
+    .strawberry::before {
+        content: "";
+        position: absolute;
+        width: 6%;
+        height: 6%;
+        color: #000;
+        color: rgba(0, 0, 0, .7);
+        box-shadow:
+            /* Left edge seeds */
+            5px 5px 0 currentColor, 3px 15px 0 currentColor, 3px 25px 0 currentColor, 3px 35px 0 currentColor, 5px 46px 0 currentColor, 10px 57px 0 currentColor, 19px 66px 0 currentColor, 32px 71px 0 currentColor, 45px 70px 0 currentColor, 57px 64px 0 currentColor, 65px 56px 0 currentColor,
+            /* Right edge seeds */
+            16px 3px 0 currentColor, 26px 4px 0 currentColor, 36px 4px 0 currentColor, 46px 4px 0 currentColor, 56px 8px 0 currentColor, 64px 17px 0 currentColor, 69px 27px 0 currentColor, 71px 38px 0 currentColor, 70px 47px 0 currentColor,
+            /* Center seeds */
+            15px 15px 0 currentColor, 14px 27px 0 currentColor, 26px 15px 0 currentColor, 17px 40px 0 currentColor, 28px 29px 0 currentColor, 39px 17px 0 currentColor, 32px 43px 0 currentColor, 43px 32px 0 currentColor, 28px 57px 0 currentColor, 45px 45px 0 currentColor, 57px 27px 0 currentColor, 41px 57px 0 currentColor, 57px 40px 0 currentColor;
+        border-radius: 45%;
+    }
+
+    .strawberry.one {
+        left: 305px;
+        top: -260px;
+        -webkit-transform: rotate(35deg) scale(.85);
+        transform: rotate(35deg) scale(.85);
+    }
+
+    .strawberry.one::after {
+        content: "";
+        position: absolute;
+        left: -34%;
+        bottom: -5px;
+        width: 330%;
+        height: 100%;
+        background: rgba(246, 70, 93, .9);
+        -webkit-transform: rotate(-35deg) rotatex(80deg);
+        transform: rotate(-35deg) rotatex(80deg);
+        border-radius: 40%;
+    }
+
+    .strawberry.two {
+        left: 360px;
+        top: -330px;
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
+
+    .strawberry.two::after {
+        content: "";
+        position: absolute;
+        left: -20%;
+        bottom: -30px;
+        width: 200%;
+        height: 100%;
+        background: rgba(246, 70, 93, .9);
+        -webkit-transform: rotate(-30deg) rotatex(80deg);
+        transform: rotate(-30deg) rotatex(80deg);
+        border-radius: 40%;
+    }
+
+    .strawberry.three {
+        left: 250px;
+        top: -250px;
+        -webkit-transform: rotate(75deg);
+        transform: rotate(75deg);
+    }
+
+    .strawberry.three::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        background: rgba(246, 70, 93, .9);
+        -webkit-transform: rotate(-75deg) rotatex(80deg);
+        transform: rotate(-75deg) rotatex(80deg);
+        border-radius: 40%;
+    }
+
+
+    .container-description {
+        width: calc(100% - 60px);
+        max-width: 60%;
+        font-size: 24px;
+        color: white;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .container-description {
+            width: 100%;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            width: calc(100% - 60px);
+        }
+    }
+
+    .floating-button {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #f05a28;
+        color: white;
+        border-radius: 50%;
+        border: none;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        font-size: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .floating-button:hover {
+        background-color: #d94c24;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+
+<body>
+    <div class="wrapper">
+        <a href="first.html">
+            <button class="floating-button">&#9654;</button>
+        </a>
+    
+        <div class="cheesecake">
+            <div class="top"></div>
+            <div class="side"></div>
+            <div class="strawberry one"></div>
+            <div class="strawberry two"></div>
+            <div class="strawberry three"></div>
+        </div>
+    </div>
+    
+    <div class="container-description">
+        <span id="text"></span>
+        <span id="cursor"></span>
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+    const text = "Happy Birthday Mahal, Piliin palagi ang magpapasaya sayo hanggang sa susunod mo pang kaarawan. Hindi man kita makakasama hanggang sa pagtanda, masaya na ako basta masaya ka. Ang wish ko para sayo na sana matupad mo lahat ng mga pinapangarap mo, magtiwala ka palagi sa sarili mo marami mang problemang magdaan lahat yan malalampasan.  Mukhang huling mensahe ko na ito sayo pero sana tumatak sa puso mo, ikaw lang ang aking mamahalin hanggang sa magdaan pa ang maraming taon.";
+    const speed = 50;
+    const containerMessage = document.getElementById('text');
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            containerMessage.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+
+    const animationDuration = 1500;
+    setTimeout(() => {
+        typeWriter();
+    }, animationDuration);
+</script>
